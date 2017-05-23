@@ -1,7 +1,12 @@
+<p align="center">
+![drupal-webpack](https://github.com/manuelro/webpack-everest/blob/master/banner.jpg?raw=true)
+</p>
+
 # webpack-everest
 
-## Everest is Webpack for Drupal 8 themes without the harsh of having to know how Webpack works.
-#### Everest is a packager that uses the power of Webpack to leverage your front-end production process and enabling you to use industry high quality standards. It uses Webpack for dependencies bundling.
+### Everest is Webpack for Drupal 8 themes without the harsh of having to know how Webpack works.
+
+Everest is a packager that uses the power of Webpack to leverage your front-end production process and enabling you to use industry high quality standards. It uses Webpack for dependencies bundling.
 
 This project was initially started as a solution for a problem I happened to experience very often while generating front-end production ready code (JavaScript, CSS and static assets). It was initially thought for Drupal theming but it will be capable of adapting to also support theme generation for WordPress, although it can be easily extended if you know the how-to.
 
