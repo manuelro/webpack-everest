@@ -1,5 +1,5 @@
 <p align="center">
-![drupal-webpack](https://github.com/manuelro/webpack-everest/blob/master/banner.jpg?raw=true)
+![drupal-webpack](https://raw.githubusercontent.com/manuelro/webpack-everest/master/banner.jpg)
 </p>
 
 # webpack-everest
