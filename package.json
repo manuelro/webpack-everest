@@ -1,0 +1,87 @@
+{
+  "name": "webpack-everest",
+  "version": "1.0.0",
+  "description": "Webpack Everest prepares your CSS, HTML, JS and image files for production in a small package easy to transport",
+  "main": "config/webpack/index.js",
+  "scripts": {
+    "dev": "webpack --watch",
+    "test": "mocha --require config/utilities/dom-setup.js --recursive --compilers js:babel-core/register src/**/*.test.js --watch --reporter spec",
+    "config-tests": "mocha config/webpack/**/*.test.js --watch --reporter spec"
+  },
+  "author": "Manuel Ro",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0-beta.1",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "browser-sync": "^2.18.12",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "chai": "^3.5.0",
+    "chai-enzyme": "^0.6.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.0",
+    "enzyme": "^2.8.2",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "glob": "^7.1.1",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "jquery": "^3.2.1",
+    "jsdom": "^9.12.0",
+    "mocha": "^3.2.0",
+    "node-sass": "^4.5.2",
+    "postcss-loader": "^1.3.3",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-test-renderer": "^15.5.4",
+    "sass-loader": "^6.0.3",
+    "sinon": "^2.1.0",
+    "style-loader": "^0.16.1",
+    "stylelint": "^7.10.1",
+    "stylelint-webpack-plugin": "^0.7.0",
+    "susy": "^2.2.12",
+    "underscore": "^1.8.3",
+    "webpack": "^2.2.0",
+    "webpack-bundle-analyzer": "^2.8.2",
+    "webpack-vendor-chunk-plugin": "^1.0.0"
+  },
+  "stylelint": {
+    "rules": {
+      "block-no-empty": null,
+      "color-no-invalid-hex": true,
+      "comment-empty-line-before": [
+        "always",
+        {
+          "ignore": [
+            "stylelint-command",
+            "after-comment"
+          ]
+        }
+      ],
+      "declaration-colon-space-after": "always",
+      "max-empty-lines": 2,
+      "rule-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "first-nested"
+          ],
+          "ignore": [
+            "after-comment"
+          ]
+        }
+      ],
+      "unit-whitelist": [
+        "em",
+        "rem",
+        "%",
+        "s",
+        "vw",
+        "vh"
+      ]
+    }
+  }
+}

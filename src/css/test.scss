@@ -1,0 +1,12 @@
+@import 'color';
+@import '~susy';
+
+$color: black;
+
+body {
+  background-color: black;
+  @include container(100em);
+  width: span(25%);
+  color: #fff;
+  transition: all;
+}
