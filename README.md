@@ -10,6 +10,8 @@ This project was initially started as a solution for a problem I happened to exp
 
 ---
 [![License:MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/manuelro/webpack-everest.svg?branch=master)](https://travis-ci.org/manuelro/webpack-everest)
+[![Coverage Status](https://coveralls.io/repos/github/manuelro/webpack-everest/badge.svg?branch=master)](https://coveralls.io/github/manuelro/webpack-everest?branch=master)
 
 ## What's in the box?
 - ES6 out of the box
