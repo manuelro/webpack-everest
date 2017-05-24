@@ -188,8 +188,8 @@ everest.config.apply({
 .reload()
 .visualize();
 ```
-### Unit testing
-To start the development environment and after configuring your `webpack.config.js` file you ccan either run `webpack --watch` or you can also create a script in your `package.json` file:
+### Running Webpack
+To start the development environment and after configuring your `webpack.config.js` file you can either run `webpack --watch` or you can also create a script in your `package.json` file:
 ```json
 "scripts": {
   "dev": "webpack --watch",
