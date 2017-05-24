@@ -22,7 +22,8 @@ This project was initially started as a solution for a problem I happened to exp
 - Support for browser autoreload
 - Unit testing with Mocha and Chai
 
-## Working directory structure (source)
+## Folder structure
+### Working directory structure (source)
 ```
 │   my-theme.info.yml
 │   my-theme.libraries.yml
@@ -42,7 +43,7 @@ This project was initially started as a solution for a problem I happened to exp
         page.html.twig
 ```
 
-## Everest output (destination)
+### Everest output (destination)
 ```
 │   my-theme.info.yml
 │   my-theme.libraries.yml
