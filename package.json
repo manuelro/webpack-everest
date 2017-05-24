@@ -5,7 +5,7 @@
   "main": "config/webpack/index.js",
   "scripts": {
     "dev": "webpack --watch",
-    "test": "mocha config/webpack/**/*.test.js --watch --reporter spec"
+    "test": "mocha config/webpack/**/*.test.js --reporter spec"
   },
   "author": "Manuel Ro",
   "license": "MIT",
