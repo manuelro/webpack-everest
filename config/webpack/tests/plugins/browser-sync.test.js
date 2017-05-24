@@ -9,8 +9,28 @@ describe( 'browserSync', function() {
 
   describe( 'return', function ( ) {
 
-    it( 'should return an object', function () {
-      assert.isObject( plugin );
+    describe( 'when no param is passed', function ( ) {
+
+      it( 'should return an object', function () {
+        assert.isObject( browserSync() );
+      } );
+
+    } );
+
+    describe( 'when passed param is an object', function ( ) {
+
+      it( 'should return an object', function () {
+        assert.isObject( browserSync({}) );
+      } );
+
+    } );
+
+    describe( 'when passed param is not an object', function ( ) {
+
+      it( 'should return an object', function () {
+        assert.throws( () => browserSync(1), Error );
+      } );
+
     } );
 
     describe( 'properties', function ( ) {
