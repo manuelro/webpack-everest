@@ -1,6 +1,6 @@
 {
   "name": "webpack-everest",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Webpack Everest prepares your CSS, HTML, JS and image files for production in a small package easy to transport",
   "main": "config/webpack/index.js",
   "scripts": {
