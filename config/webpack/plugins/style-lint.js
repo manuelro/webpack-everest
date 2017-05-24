@@ -1,8 +1,6 @@
 const StyleLintPlugin = require( 'stylelint-webpack-plugin' );
+const Plugin = require('./plugin');
 
 module.exports = function(){
-  return {
-    name: 'StyleLintPlugin',
-    plugin: new StyleLintPlugin({}),
-  }
+  return new Plugin('StyleLintPlugin', StyleLintPlugin, {});
 }

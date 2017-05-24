@@ -1,8 +1,6 @@
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
+const Plugin = require('../plugin');
 
 module.exports = function(){
-  return {
-    name: 'CopyFirstLevelFiles',
-    plugin: new CopyWebpackPlugin([{ from: 'src/*.*', to: '[name].[ext]' }]),
-  }
+  return new Plugin('CopyFirstLevelFiles', CopyWebpackPlugin, [{ from: 'src/*.*', to: '[name].[ext]' }]);
 }

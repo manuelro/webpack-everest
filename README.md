@@ -95,15 +95,15 @@ If you cloned the sample app and installed all of its dependencies you should no
 //FILE: webpack.config.js
 const everest = require('webpack-everest');
 ```
-### everest.config.apply()
-The `everest.config.apply()` method receives an object literal with configuration options you can pass to Everest for it to organize Webpack internals.
+### everest.webpack.apply()
+The `everest.webpack.apply()` method receives an object literal with configuration options you can pass to Everest for it to organize Webpack internals.
 #### Setup CWD path
-In order to know where your source files are, Everest needs to know the current working directory of your project root folder (the one where you cloned the [sample app](https://github.com/manuelro/webpack-everest-sample.git)). To do this pass the `__dirname` using the `everest.config.apply()` method:
+In order to know where your source files are, Everest needs to know the current working directory of your project root folder (the one where you cloned the [sample app](https://github.com/manuelro/webpack-everest-sample.git)). To do this pass the `__dirname` using the `everest.webpack.apply()` method:
 ```javascript
 //FILE: webpack.config.js
 const everest = require('webpack-everest');
 
-everest.config.apply({
+everest.webpack.apply({
   output: {
     root: __dirname,
   }
@@ -117,7 +117,7 @@ The destination folder is the one which is going to contain your production-read
 const everest = require('webpack-everest');
 
 //Relative folder names will resolve to your working directory
-everest.config.apply({
+everest.webpack.apply({
   output: {
     root: __dirname,
     dest: 'dist' //Can be anything, defaults to 'dist'
@@ -134,7 +134,7 @@ You can obtain the absolute path of your Drupal 8 themes folder by right
 clicking it and copying the full location path. Note that Windows needs to
 escape backslashes in order to work as a valid folder location path
 */
-everest.config.apply({
+everest.webpack.apply({
   output: {
     root: __dirname,
     dest: 'D:\\my\\local\\drupal\\instalation\\themes\\winter'
@@ -142,13 +142,13 @@ everest.config.apply({
 });
 ```
 
-### everest.config.reload()
-Everest needs to run again in order to load the new configuration options. `everest.config.reload()` does just that, refreshes the internal state to propagate the changes.
+### everest.webpack.reload()
+Everest needs to run again in order to load the new configuration options. `everest.webpack.reload()` does just that, refreshes the internal state to propagate the changes.
 ```javascript
 //FILE: webpack.config.js
 const everest = require('webpack-everest');
 
-everest.config.apply({
+everest.webpack.apply({
   //...
 })
 .reload();
@@ -158,19 +158,19 @@ As you can see, Everest supports method chaining for a cleaner coding experience
 //FILE: webpack.config.js
 const everest = require('webpack-everest');
 
-everest.config.apply({/*...*/});
+everest.webpack.apply({/*...*/});
 //It can be called with no arguments at all
-everest.config.reload();
+everest.webpack.reload();
 ```
 The reload method takes in an optional string value refering to each one of the top level Webpack API properties (`devtool`, `entry`, `externals`, `module`, `output`, `plugins`).
 
-### everest.config.sync() - Optional
-The `everest.config.sync()` method enables [proxying](https://en.wikipedia.org/wiki/Proxy_server) and live reloading of your Drupal 8 theme with anything the server returns with automatic watchers for changes.
+### everest.webpack.sync() - Optional
+The `everest.webpack.sync()` method enables [proxying](https://en.wikipedia.org/wiki/Proxy_server) and live reloading of your Drupal 8 theme with anything the server returns with automatic watchers for changes.
 ```javascript
 //FILE: webpack.config.js
 const everest = require('webpack-everest');
 
-everest.config.apply({
+everest.webpack.apply({
   //...
 })
 .reload()
@@ -182,13 +182,13 @@ everest.config.apply({
 
 This will open a browser and proxy a NodeJS server to the server provided by Acquia, this will automagically listen for changes in your working directory and reload the browser accordingly.
 
-### everest.config.visualize() - Optional
+### everest.webpack.visualize() - Optional
 Data visualization in a graphic manner is very important for any front-end developer, it helps you to understand how bundles are organized and the size and optimization you can make to your code in order to keep things simple. This method will open a new browser window with a dynamic data visualization chart, this chart will reload whenever you make a change to your source code.
 ```javascript
 //FILE: webpack.config.js
 const everest = require('webpack-everest');
 
-everest.config.apply({
+everest.webpack.apply({
   //...
 })
 .reload()
@@ -224,12 +224,12 @@ To test React apps you have to first grab a copy of the `dom-setup.js` located i
 
 
 ## Exporting the configuration
-Every `webpack.config.js` must export a valid configuration file, in order to do this simply add `module.exports = everest.config.config;` at the end of your Webpack config file:
+Every `webpack.config.js` must export a valid configuration file, in order to do this simply add `module.exports = everest.webpack.config;` at the end of your Webpack config file:
 ```javascript
 // FILE: webpack.config.js
 const everest = require('webpack-everest');
 
-everest.config.apply({
+everest.webpack.apply({
   output: {
     root: __dirname,
     dest: 'D:\\some\\absolute\\path',
@@ -241,7 +241,7 @@ everest.config.apply({
 })
 .visualize();
 
-module.exports = everest.config.config;
+module.exports = everest.webpack.config;
 ```
 
 ## Everest is ready

@@ -1,9 +1,9 @@
-const { config } = require('./config');
+const { webpack } = require('./config');
 
-config.setProp('entry', {
+webpack.setProp('entry', {
   js: './src/js/index.js',
   css: './src/css/index.js',
   images: './src/images/index.js'
 });
 
-module.exports = { config };
+module.exports = { webpack };

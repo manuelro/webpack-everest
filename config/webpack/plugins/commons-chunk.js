@@ -1,4 +1,5 @@
 const webpack = require( 'webpack' );
+const Plugin = require('./plugin');
 
 module.exports = function(options){
   if(!options) options = {};
@@ -14,8 +15,5 @@ module.exports = function(options){
 
   Object.assign(config, options);
 
-  return {
-    name: 'CommonsChunkPlugin',
-    plugin: new webpack.optimize.CommonsChunkPlugin(config)
-  }
+  return new Plugin('CommonsChunkPlugin', webpack.optimize.CommonsChunkPlugin, config);
 }

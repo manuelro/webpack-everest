@@ -1,13 +1,13 @@
 {
   "name": "webpack-everest",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Webpack Everest prepares your CSS, HTML, JS and image files for production in a small package easy to transport",
   "main": "config/webpack/index.js",
   "scripts": {
     "dev": "webpack --watch",
     "test": "mocha config/webpack/**/*.test.js --reporter spec",
     "test-watch": "mocha config/webpack/**/*.test.js --reporter spec --watch",
-    "coverage-local": "istanbul cover ./node_modules/mocha/bin/_mocha config/webpack/**/*.test.js --reporter spec",
+    "coverage-local": "istanbul cover ./node_modules/mocha/bin/_mocha config/webpack/**/*.test.js --reporter",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha config/webpack/**/*.test.js --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "author": "Manuel Ro",

@@ -1,8 +1,8 @@
 const { rules } = require('./module/rules');
-const { config } = require('./config');
+const { webpack } = require('./config');
 
-config.setProp('module', function () {
+webpack.setProp('module', function () {
   this.config.module = { rules: rules };
 });
 
-module.exports = { config };
+module.exports = { webpack };

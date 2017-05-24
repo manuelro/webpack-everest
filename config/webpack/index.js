@@ -5,6 +5,6 @@ require( './plugins.js' );
 require( './devtool.js' );
 require( './externals.js' );
 
-const { config } = require('./config');
+const { webpack } = require('./config');
 
-module.exports = { config };
+module.exports = { webpack };

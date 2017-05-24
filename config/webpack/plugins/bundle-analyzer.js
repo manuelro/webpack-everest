@@ -1,5 +1,6 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const _ = require('underscore');
+const Plugin = require('./plugin');
 
 module.exports = function(options){
   if(!options) options = {};
@@ -11,8 +12,5 @@ module.exports = function(options){
 
   Object.assign(config, options);
 
-  return {
-    name: 'BundleAnalyzerPlugin',
-    plugin: new BundleAnalyzerPlugin(config),
-  }
+  return new Plugin('BundleAnalyzerPlugin', BundleAnalyzerPlugin, config);
 }

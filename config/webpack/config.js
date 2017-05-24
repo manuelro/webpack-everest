@@ -147,8 +147,6 @@ class Config{
   }
 }
 
-const instance = new Config;
-
 module.exports = {
-  config: instance
+  webpack: new Config
 }

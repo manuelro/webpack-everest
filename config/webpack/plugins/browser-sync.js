@@ -1,5 +1,6 @@
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const _ = require('underscore');
+const Plugin = require('./plugin');
 
 module.exports = function(options){
   if(!options) options = {};
@@ -11,8 +12,5 @@ module.exports = function(options){
 
   Object.assign(config, options);
 
-  return {
-    name: 'BrowserSyncPlugin',
-    plugin: new BrowserSyncPlugin(config),
-  }
+  return new Plugin('BrowserSyncPlugin', BrowserSyncPlugin, config);
 }

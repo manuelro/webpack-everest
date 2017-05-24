@@ -1,4 +1,4 @@
-const { config } = require('./config');
+const { webpack } = require('./config');
 const extractText = require('./plugins/extract-text');
 const styleLint = require('./plugins/style-lint');
 const copyTemplatesFolder = require('./plugins/copy/templates-folder');
@@ -6,7 +6,7 @@ const copyConfigFolder = require('./plugins/copy/config-folder');
 const copyFirstLevelFiles = require('./plugins/copy/first-level-files');
 const commonsChunk = require('./plugins/commons-chunk');
 
-config.setProp('plugins', function () {
+webpack.setProp('plugins', function () {
   this.addPlugin(extractText);
   this.addPlugin(styleLint);
   this.addPlugin(copyTemplatesFolder);
@@ -15,4 +15,4 @@ config.setProp('plugins', function () {
   this.addPlugin(commonsChunk);
 });
 
-module.exports = { config };
+module.exports = { webpack };

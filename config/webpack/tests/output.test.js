@@ -1,5 +1,5 @@
 const assert = require( 'chai' ).assert;
-const { config } = require( '../config' );
+const { webpack } = require( '../config' );
 require( '../output' );
 
 const root = '/root';
@@ -11,20 +11,20 @@ describe( 'output', function() {
     let options = { __dirname: 'dirname' };
 
     beforeEach( function () {
-      config.options = { root, dest, outputFilename }
-      config.reload('output');
+      webpack.options = { root, dest, outputFilename }
+      webpack.reload('output');
     } );
 
     it( 'should define an output object', function () {
-      assert.isObject( config.getProp('output') );
+      assert.isObject( webpack.getProp('output') );
     } );
 
     it( 'should define a filename property of type string', function () {
-      assert.isString( config.getProp('output').filename );
+      assert.isString( webpack.getProp('output').filename );
     } );
 
     it( 'should define a path property of type string', function () {
-      assert.isString( config.getProp('output').path );
+      assert.isString( webpack.getProp('output').path );
     } );
 
   } );

@@ -1,8 +1,6 @@
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+const Plugin = require('./plugin');
 
 module.exports = function(){
-  return {
-    name: 'ExtractTextPlugin',
-    plugin: new ExtractTextPlugin('css/main.css'),
-  }
+  return new Plugin('ExtractTextPlugin', ExtractTextPlugin, 'css/main.css');
 }

@@ -1,9 +1,9 @@
-const { config } = require('./config');
+const { webpack } = require('./config');
 
-config.setProp('externals', {
+webpack.setProp('externals', {
   'react/addons': true,
   'react/lib/ExecutionEnvironment': true,
   'react/lib/ReactContext': true
 });
 
-module.exports = { config };
+module.exports = { webpack };

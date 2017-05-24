@@ -1,5 +1,5 @@
-const { config } = require('./config');
+const { webpack } = require('./config');
 
-config.setProp('devtool', 'source-map');
+webpack.setProp('devtool', 'source-map');
 
-module.exports = { config };
+module.exports = { webpack };

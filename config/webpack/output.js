@@ -1,7 +1,7 @@
-const { config } = require('./config');
+const { webpack } = require('./config');
 const path = require('path');
 
-config.setProp('output', function () {
+webpack.setProp('output', function () {
   if(!this.options.output) this.options.output = {};
 
   const root = this.options.output.root || __dirname;
@@ -18,4 +18,4 @@ config.setProp('output', function () {
   this.config.output = { filename: `[name]/${filename}`, path: destPath };
 });
 
-module.exports = { config };
+module.exports = { webpack };
