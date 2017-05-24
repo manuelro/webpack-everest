@@ -22,7 +22,7 @@ This project was initially started as a solution for a problem I happened to exp
 - Support for browser autoreload
 - Unit testing with Mocha and Chai
 
-## Working directory structure
+## Working directory structure (source)
 ```
 │   my-theme.info.yml
 │   my-theme.libraries.yml
@@ -42,7 +42,7 @@ This project was initially started as a solution for a problem I happened to exp
         page.html.twig
 ```
 
-## Everest output
+## Everest output (destination)
 ```
 │   my-theme.info.yml
 │   my-theme.libraries.yml
@@ -85,6 +85,9 @@ The easiest way to start a Drupal project is by usin [Acquia Dev Desktop](https:
 
 ## Everest API
 Everest API is very simple and is composed of only a few methods that will enable you to start working on your theme ASAP.
+
+**By default Everest will look for a `./src` folder in your project root, this is a convention and will always be respected by Everest.**
+
 ### Importing Everest
 If you cloned the sample app and installed all of its dependencies you should now be able to import Everest to your `webpack.config.js` file:
 ```javascript
@@ -190,7 +193,7 @@ everest.config.apply({
 .reload()
 .visualize();
 ```
-### Running Webpack
+## Running Webpack
 To start the development environment and after configuring your `webpack.config.js` file you can either run `webpack --watch` or you can also create a script in your `package.json` file:
 ```json
 "scripts": {
@@ -199,7 +202,7 @@ To start the development environment and after configuring your `webpack.config.
 ```
 Then run `npm run dev` from the CLI.
 
-### Unit testing
+## Unit testing
 To unit test your app make sure to add a script to the `scripts` section of your `package.json` file:
 ```json
 "scripts": {
@@ -211,7 +214,7 @@ Then run `npm run test` from the CLI.
 
 #### Testing React apps
 To test React apps you have to first grab a copy of the `dom-setup.js` located in the original repo under `config/utilities/dom-setup.js`, put it wherever you like and add it as a requirement for mocha (using the `--require` flag), and you're ready to start coding.
-```
+```json
 "scripts": {
   "dev": "webpack --watch",
   "test": "mocha --require dom-setup.js --recursive --compilers js:babel-core/register src/**/*.test.js --watch --reporter spec"
