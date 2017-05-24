@@ -1,4 +1,5 @@
-const assert = require( 'chai' ).assert;
+const sinon = require('sinon')
+const { assert, expect } = require( 'chai' );
 const { config } = require( '../config' );
 
 describe( 'config', function() {
@@ -91,9 +92,65 @@ describe( 'config', function() {
       describe( 'when passed name is a string', function(){
         describe( 'when is empty', function(){
           it( 'should throw', function () {
-            assert.throws( () => config.getProp(' '), Error );
+            assert.throws( () => config.getProp(''), Error );
           } );
         } );
+      } );
+    } );
+
+    describe( 'reload', function () {
+      beforeEach(function(){
+        for (let key in config.propsCache) {
+          if (config.propsCache.hasOwnProperty(key)) {
+            sinon.spy(config.propsCache, key);
+          }
+        }
+      });
+
+      afterEach(function(){
+        for (let key in config.propsCache) {
+          if (config.propsCache.hasOwnProperty(key)) {
+            config.propsCache[key].restore();
+          }
+        }
+      });
+
+      describe( 'when passed name is undefined', function(){
+        it('should call them all', function(){
+          config.reload();
+          for (let key in config.propsCache) {
+            if (config.propsCache.hasOwnProperty(key)) {
+              sinon.assert.calledOnce(config.propsCache[key]);
+            }
+          }
+        });
+      } );
+
+      describe( 'when passed name is array', function(){
+        it('call the ones in the array', function(){
+          config.setProp('test_1', () => 'Test function');
+          config.setProp('test_2', () => 'Test function');
+
+          sinon.spy(config.propsCache, 'test_1');
+          sinon.spy(config.propsCache, 'test_2');
+
+          config.reload(['test_1', 'test_2']);
+
+          sinon.assert.calledOnce(config.propsCache['test_1']);
+          sinon.assert.calledOnce(config.propsCache['test_2']);
+        });
+      } );
+
+      describe( 'when passed name is string', function(){
+        it('call one by name', function(){
+          config.reload('test');
+          sinon.assert.calledOnce(config.propsCache['test']);
+        });
+      } );
+
+      describe( 'should return the instance', function(){
+        const actual = config.reload();
+        assert.equal(actual, config);
       } );
     } );
 

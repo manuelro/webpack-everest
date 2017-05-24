@@ -15,8 +15,6 @@ config.setProp('output', function () {
     destPath = path.join(root, dest);
   }
 
-  console.log(destPath);
-
   this.config.output = { filename: `[name]/${filename}`, path: destPath };
 });
 

@@ -91,16 +91,18 @@ class Config{
 
   //Gets a property from the config object
   getProp(propName){
-    if(!propName || typeof propName !== 'string')
-      throw new Error('invalid-prop', 'Pass a valid property name');
+    if(_.isUndefined(propName))
+      throw new Error('invalid-prop', 'Property name cannot be undefined');
 
-    if(/^\s*$/.test(propName))
-      throw new Error('invalid-prop', 'Pass a valid property name');
+    if(!_.isString(propName))
+      throw new Error('invalid-prop', 'Property name must be a string');
+
+    if(_.isEmpty(propName))
+      throw new Error('invalid-prop', 'Property name cannot be empty');
 
     return this.config[propName];
   }
 
-  // TODO: Unit test
   //Refreshes the configuration when options changes
   reload(propName){
     if(_.isUndefined(propName))
