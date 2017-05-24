@@ -1,12 +1,11 @@
 {
   "name": "webpack-everest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Webpack Everest prepares your CSS, HTML, JS and image files for production in a small package easy to transport",
   "main": "config/webpack/index.js",
   "scripts": {
     "dev": "webpack --watch",
-    "test": "mocha --require config/utilities/dom-setup.js --recursive --compilers js:babel-core/register src/**/*.test.js --watch --reporter spec",
-    "config-tests": "mocha config/webpack/**/*.test.js --watch --reporter spec"
+    "test": "mocha config/webpack/**/*.test.js --watch --reporter spec"
   },
   "author": "Manuel Ro",
   "license": "MIT",

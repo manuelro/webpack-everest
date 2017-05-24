@@ -1,0 +1,10 @@
+language: node_js
+
+node_js:
+  - "7"
+  - "6.9"
+  - "6.5"
+  - "6"
+
+notifications:
+  email: "mc.ro18@gmail.com"
