@@ -97,21 +97,5 @@ describe( 'config', function() {
       } );
     } );
 
-    // describe( 'reload', function () {
-    //   it( 'when passed name is not a string', function () {
-    //     it( 'when passed prop name is not a string', function () {
-    //       assert.throws( () => config.reload({}), Error );
-    //     } );
-    //   } );
-    //
-    //   it( 'when passed prop name is an empty string', function () {
-    //     assert.throws( () => config.reload(' '), Error );
-    //   } );
-    //
-    //   it( 'when property is not a function', function () {
-    //     assert.throws( () => config.reload('test'), Error );
-    //   } );
-    // } );
-
   } );
 } );

@@ -120,7 +120,7 @@ const everest = require('webpack-everest');
 everest.config.apply({
   output: {
     root: __dirname,
-    dest: 'build' //Can be anything
+    dest: 'dist' //Can be anything, defaults to 'dist'
   }
 });
 ```
@@ -131,13 +131,13 @@ const everest = require('webpack-everest');
 
 /*
 You can obtain the absolute path of your Drupal 8 themes folder by right
-clicking it and copying the full location path. Note that Windows needs two
-escape backslashes in order to work as a folder location path
+clicking it and copying the full location path. Note that Windows needs to
+escape backslashes in order to work as a valid folder location path
 */
 everest.config.apply({
   output: {
     root: __dirname,
-    dest: 'D:\\some\\absolute\\path'
+    dest: 'D:\\my\\local\\drupal\\instalation\\themes\\winter'
   }
 });
 ```
