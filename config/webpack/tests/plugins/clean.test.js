@@ -1,17 +1,14 @@
 const assert = require( 'chai' ).assert;
-const templatesFolder = require( '../../../plugins/copy/templates-folder' );
+const clean = require( '../../plugins/clean' );
 
 var plugin;
-describe( 'templatesFolder', function() {
+const context = { config: { output: { path: '/path' } } }
+describe( 'clean', function() {
   beforeEach(function(){
-    plugin = templatesFolder()
+    plugin = clean.call(context);
   });
 
   describe( 'return', function ( ) {
-
-    it( 'should return an object', function () {
-      assert.isObject( plugin );
-    } );
 
     describe( 'properties', function ( ) {
 
@@ -24,6 +21,6 @@ describe( 'templatesFolder', function() {
       } );
 
     } );
-    
+
   } );
 } );

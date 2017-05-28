@@ -1,5 +1,5 @@
 const assert = require( 'chai' ).assert;
-const { scripts } = require( '../../module/rule-scripts.js' );
+const scripts = require( '../../module/rule-scripts.js' );
 
 describe( 'module : rule : scripts', function() {
   describe( 'props', function ( ) {

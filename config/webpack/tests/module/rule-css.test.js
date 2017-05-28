@@ -1,11 +1,11 @@
 const assert = require( 'chai' ).assert;
-const { styles } = require( '../../module/rule-styles.js' );
+const css = require( '../../module/rule-css.js' );
 
-describe( 'module : rule : styles', function() {
+describe( 'module : rule : css', function() {
   describe( 'props', function ( ) {
 
     it( 'should define a rule object', function () {
-      assert.isObject( styles );
+      assert.isObject( css );
     } );
 
   } );

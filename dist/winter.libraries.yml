@@ -1,0 +1,12 @@
+global-css:
+  css:
+    theme:
+      css/main.css: {}
+
+common-js:
+  js:
+    js/commons.bundle.js: {}
+
+global-js:
+  js:
+    js/bundle.js: {}

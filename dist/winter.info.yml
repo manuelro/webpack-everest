@@ -1,0 +1,18 @@
+name: Winter
+description: Some description for this windy theme
+type: theme
+core: 8.x
+
+libraries:
+  - winter/global-css
+  - winter/common-js
+  - winter/global-js
+
+stylesheets-remove:
+  - core/themes/stable/css/system/components/ajax-progress.module.css
+
+regions:
+  header: 'Header'
+  content: 'Main content'
+  footer: 'Footer'
+  sidebar: 'Sidebar'

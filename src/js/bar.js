@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import name from './name.js';
 
 class App extends React.Component {
   constructor(props) {

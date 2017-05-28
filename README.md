@@ -16,7 +16,8 @@ This project was initially started as a solution for a problem I happened to exp
 ## What's in the box?
 - ES6 out of the box
 - NPM automatic integration and module loading
-- Full Sass support with autoprefix
+- Full Sass support with autoprefix (imported by `.js` or other `.sass` files)
+- Less support (imported by `.js` or other `.less` files)
 - Optional bundle graph visualization
 - Support for absolute output path
 - Support for browser autoreload
@@ -61,6 +62,16 @@ This project was initially started as a solution for a problem I happened to exp
 └───templates
         page.html.twig
 ```
+
+## Things Everest will do during the development and production processes
+Expect duplication in your destination folder, for instance, static files that you removed from your source folder will not be removed in your destination folder during development. Once you run `webpack -p` (in production mode) Everest will get control of the workflow and will do the following:
+- Clean your destination folder
+- Start to process to build a fresh output based only upon the things you are really using in your source folder
+- Put everything in your destination folder
+- Minify and uglify your JS files
+- Minify and concat your CSS/Sass/Less files and put them in your destination folder
+- Copy any top-level filed, such as `.yml` Drupal configuration files and theme preview image
+- Extract any common JS library and put it in a `commons.bundle.js` file
 
 ## Installation and configuration
 ### Installation
@@ -124,6 +135,19 @@ everest.webpack.apply({
   }
 });
 ```
+##### Common libraries setup
+Common libraries will be bundled in their own `dist/js/commons.bundle.js` file. In order to setup common libraries you should pass a `common` property to the options' entry configuration object.
+```javascript
+//FILE: webpack.config.js
+const everest = require('webpack-everest');
+
+everest.webpack.apply({
+  output: {/*...*/},
+  entry: {
+    common: ['react', 'react-dom', 'underscore']
+  }
+});
+```
 ##### Absolute folder resolution
 ```javascript
 //FILE: webpack.config.js
@@ -142,8 +166,8 @@ everest.webpack.apply({
 });
 ```
 
-### everest.webpack.reload()
-Everest needs to run again in order to load the new configuration options. `everest.webpack.reload()` does just that, refreshes the internal state to propagate the changes.
+### everest.webpack.reload() - Optional
+Everest will automatically load the configuration after every apply call, but you can still calling `everest.webpack.reload()` method manually. `everest.webpack.reload()` does just that, refreshes the internal state to propagate the changes.
 ```javascript
 //FILE: webpack.config.js
 const everest = require('webpack-everest');
@@ -235,13 +259,24 @@ everest.webpack.apply({
     dest: 'D:\\some\\absolute\\path',
   }
 })
-.reload()
 .sync({
   proxy: 'http://mysitelocaldomain.com'
 })
 .visualize();
 
 module.exports = everest.webpack.config;
+```
+## `package.json` scripts
+In your `package.json` scripts you can add handy scripts to run your environment, this is a recommended setup:
+```json
+"scripts": {
+  "dev": "webpack --watch",
+  "build": "webpack -p",
+  "test": "nyc mocha config/webpack/**/*.test.js --reporter spec",
+  "test-watch": "nyc mocha config/webpack/**/*.test.js --reporter spec --watch",
+  "coverage-local": "nyc istanbul cover ./node_modules/mocha/bin/_mocha config/webpack/**/*.test.js --reporter",
+  "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha config/webpack/**/*.test.js --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+}
 ```
 
 ## Everest is ready

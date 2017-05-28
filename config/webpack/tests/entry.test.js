@@ -2,6 +2,7 @@ const assert = require( 'chai' ).assert;
 const _entry = require( '../entry' );
 const { webpack } = require( '../config' );
 
+var newEntry;
 describe( 'entry', function() {
   describe( 'props', function ( ) {
 

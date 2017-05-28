@@ -154,5 +154,64 @@ describe( 'webpack', function() {
       } );
     } );
 
+    describe( 'apply', function () {
+      beforeEach(function(){
+        webpack.apply({ config: { test: true } });
+      });
+
+      it('should apply new configuration', function(){
+        assert.equal(webpack.options.config.test, true);
+      });
+
+    } );
+
+    describe( 'sync', function () {
+
+      beforeEach(function(){
+        sinon.spy(webpack, 'addPlugin');
+        webpack.sync({ test: true });
+      });
+
+      afterEach(function(){
+        webpack.addPlugin.restore();
+      });
+
+      it('should set a BrowserSyncPlugin property to options.plugins array', function(){
+        assert.equal(webpack.options.plugins.BrowserSyncPlugin.test, true);
+      });
+
+      it('should have called addPlugin method', function(){
+        sinon.assert.calledOnce(webpack.addPlugin);
+      });
+
+      it('should return instance', function(){
+        assert.isObject(webpack.sync({ test: true }));
+      });
+    } );
+
+    describe( 'visualize', function () {
+
+      beforeEach(function(){
+        sinon.spy(webpack, 'addPlugin');
+        webpack.visualize({ test: true });
+      });
+
+      afterEach(function(){
+        webpack.addPlugin.restore();
+      });
+
+      it('should set a BundleAnalyzerPlugin property to options.plugins array', function(){
+        assert.equal(webpack.options.plugins.BundleAnalyzerPlugin.test, true);
+      });
+
+      it('should have called addPlugin method', function(){
+        sinon.assert.calledOnce(webpack.addPlugin);
+      });
+
+      it('should return instance', function(){
+        assert.isObject(webpack.visualize({ test: true }));
+      });
+    } );
+
   } );
 } );
