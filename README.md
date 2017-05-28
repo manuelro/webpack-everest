@@ -76,14 +76,14 @@ Expect duplication in your destination folder, for instance, static files that y
 ## Installation and configuration
 ### Installation
 #### Add Everest core to your NPM packages
-To start using Everest you have two options, to install it and copy all the files from the [sample app](https://github.com/manuelro/webpack-everest-sample.git) or simply by cloning the sample app to your local machine:
 ```
 npm install webpack-everest --save-dev
 ```
 
-#### Or simply clone the sample app repo
+#### Clone this repo
+Afterwards clone this repo. Your working directory will be located at `/src`, this folder contain a very simple app that implements React, some Sass and Less files, and some of the ES6 features.
 ```
-git clone https://github.com/manuelro/webpack-everest-sample.git
+git clone https://github.com/manuelro/webpack-everest.git
 ```
 #### Install the dependencies
 Make sure to run `npm install` to install everything Everest needs:

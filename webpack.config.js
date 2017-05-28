@@ -9,7 +9,6 @@ const everest = require('./config/webpack');
 everest.webpack.apply({
   output: {
     root: __dirname,
-    dest: 'foo',
   },
   entry: {
     common: ['react', 'react-dom', 'normalize.css']
