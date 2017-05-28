@@ -1,6 +1,6 @@
 {
   "name": "webpack-everest",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Webpack Everest prepares your CSS, HTML, JS and image files for production in a small package easy to transport",
   "main": "config/webpack/index.js",
   "scripts": {
@@ -68,15 +68,6 @@
     "rules": {
       "block-no-empty": null,
       "color-no-invalid-hex": true,
-      "comment-empty-line-before": [
-        "always",
-        {
-          "ignore": [
-            "stylelint-command",
-            "after-comment"
-          ]
-        }
-      ],
       "declaration-colon-space-after": "always",
       "max-empty-lines": 2,
       "rule-empty-line-before": [
@@ -96,7 +87,8 @@
         "%",
         "s",
         "vw",
-        "vh"
+        "vh",
+        "px"
       ]
     }
   }
