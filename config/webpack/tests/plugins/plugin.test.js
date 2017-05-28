@@ -28,6 +28,14 @@ describe( 'Plugin', function() {
     } );
   } );
 
+  describe( 'when and object is passed', function ( ) {
+    it( 'constructor should be passed an empty object', function () {
+      plugin = new Plugin('Fake', Fake, { test: true });
+      assert.isObject( plugin.plugin.props );
+      assert.equal( plugin.plugin.props.test, true );
+    } );
+  } );
+
   describe( 'when a string is passed passed', function ( ) {
     it( 'constructor should be passed a string', function () {
       plugin = new Plugin('Fake', Fake, 'fake');

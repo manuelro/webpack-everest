@@ -1,5 +1,6 @@
 const assert = require( 'chai' ).assert;
 const templatesFolder = require( '../../../plugins/copy/templates-folder' );
+const Plugin = require( '../../../plugins/plugin' );
 
 var plugin;
 describe( 'templatesFolder', function() {
@@ -24,6 +25,6 @@ describe( 'templatesFolder', function() {
       } );
 
     } );
-    
+
   } );
 } );

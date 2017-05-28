@@ -1,4 +1,5 @@
 const browserSync = require('./plugins/browser-sync');
+const provide = require('./plugins/provide');
 const bundleAnalyzer = require('./plugins/bundle-analyzer');
 const _ = require('underscore');
 
@@ -103,7 +104,7 @@ class Config{
     return this.config[propName];
   }
 
-  //Refreshes the configuration when options changes
+
   reload(propName){
     if(_.isUndefined(propName))
       for (let key in this.propsCache) {
@@ -123,23 +124,23 @@ class Config{
     return this;
   }
 
-  // TODO: Unit test
-  //Applies modifications to options object
   apply(options){
     Object.assign(this.options, options);
     return this.reload();
   }
 
-  // TODO: Unit test
-  //Enables browserSync to proxy a given domain
   sync(config){
     this.options.plugins.BrowserSyncPlugin = config;
     this.addPlugin(browserSync);
     return this;
   }
 
-  // TODO: Unit test
-  //Enables visualization of the output bundles
+  provide(config){
+    this.options.plugins.provide = config;
+    this.addPlugin(provide);
+    return this;
+  }
+
   visualize(config){
     this.options.plugins.BundleAnalyzerPlugin = config;
     this.addPlugin(bundleAnalyzer);

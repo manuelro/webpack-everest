@@ -188,6 +188,24 @@ everest.webpack.reload();
 ```
 The reload method takes in an optional string value refering to each one of the top level Webpack API properties (`devtool`, `entry`, `externals`, `module`, `output`, `plugins`).
 
+### everest.webpack.provide() - Optional
+The `everest.webpack.provide()` method provides namespaces as global variables in the window object. It is useful to expose the API of libraries like jQuery. It receives a configuration object that is passed to Webpack's [ProvidePlugin](https://webpack.js.org/plugins/provide-plugin/).
+```javascript
+//FILE: webpack.config.js
+const everest = require('webpack-everest');
+
+everest.webpack.apply({
+  entry: {
+    //Make sure to import jQuery as a common library
+    common: ['jquery', 'bootstrap']
+  }
+})
+.provide({
+  $: 'jquery',
+  jQuery: 'jquery'
+});
+```
+
 ### everest.webpack.sync() - Optional
 The `everest.webpack.sync()` method enables [proxying](https://en.wikipedia.org/wiki/Proxy_server) and live reloading of your Drupal 8 theme with anything the server returns with automatic watchers for changes.
 ```javascript

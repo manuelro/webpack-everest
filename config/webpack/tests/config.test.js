@@ -189,6 +189,30 @@ describe( 'webpack', function() {
       });
     } );
 
+    describe( 'provide', function () {
+
+      beforeEach(function(){
+        sinon.spy(webpack, 'addPlugin');
+        webpack.provide({ test: true });
+      });
+
+      afterEach(function(){
+        webpack.addPlugin.restore();
+      });
+
+      it('should set a provide property to options.plugins array', function(){
+        assert.equal(webpack.options.plugins.provide.test, true);
+      });
+
+      it('should have called addPlugin method', function(){
+        sinon.assert.calledOnce(webpack.addPlugin);
+      });
+
+      it('should return instance', function(){
+        assert.isObject(webpack.provide({ test: true }));
+      });
+    } );
+
     describe( 'visualize', function () {
 
       beforeEach(function(){
