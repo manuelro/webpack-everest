@@ -12,5 +12,5 @@ module.exports = function(options){
 
   Object.assign(config, options);
 
-  return new Plugin('Provider', webpack.ProvidePlugin, config);
+  return new Plugin('provide', webpack.ProvidePlugin, config);
 }

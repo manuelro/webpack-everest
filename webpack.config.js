@@ -14,5 +14,11 @@ everest.webpack.apply({
     common: ['react', 'react-dom', 'normalize.css']
   }
 })
+.provide({
+  $: 'jquery',
+  jQuery: 'jquery'
+})
+
+console.log(everest.webpack.options);
 
 module.exports = everest.webpack.config
