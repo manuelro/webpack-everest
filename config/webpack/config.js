@@ -53,10 +53,10 @@ class Config{
 
     if(!_.isEmpty(options)) plugin = pluginFunction.call(this, options);
 
-    if(!_.property(plugin, 'name'))
+    if(!_.isString(plugin.name))
       throw new Error('invalid-prop', 'The generated plugin must contain a name property');
 
-    if(!_.property(plugin, 'plugin'))
+    if(!_.isObject(plugin.plugin))
       throw new Error('invalid-prop', 'The generated plugin must contain a plugin property');
 
     if(!this.config.plugins) this.config.plugins = [];

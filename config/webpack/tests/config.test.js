@@ -25,10 +25,58 @@ describe( 'webpack', function() {
 
   describe( 'method', function ( ) {
 
-    describe( 'preset', function () {
+    describe( 'setPreset', function () {
       describe( 'when passed other value than "drupal"', function(){
         it( 'should throw', function () {
-          assert.throws( () => config.setPreset('wordpress'), Error );
+          assert.throws( () => webpack.setPreset('wordpress'), Error );
+        } );
+      } );
+    } );
+
+    describe( 'addPlugin', function () {
+      var pluginParams = {
+        funcWithName(){
+          return {
+            name: 'test',
+            plugin: function(){}
+          }
+        },
+        funcWithoutName(){
+          return {
+            plugin: function(){}
+          }
+        },
+        funcWithoutPlugin(){
+          return {
+            name: 'test'
+          }
+        }
+      }
+
+      beforeEach(function(){
+        webpack.options.plugins.test = { test: 'option' }
+        sinon.spy(pluginParams, 'funcWithName');
+      });
+
+      afterEach(function(){
+        pluginParams.funcWithName.restore();
+      });
+
+      describe( 'when passed param is not a function', function(){
+        it( 'should throw', function () {
+          assert.throws( () => webpack.addPlugin(), Error );
+        } );
+      } );
+
+      describe( 'when returned plugin config does not have a name', function(){
+        it( 'should throw', function () {
+          assert.throws( () => webpack.addPlugin(pluginParams.funcWithoutName), Error );
+        } );
+      } );
+
+      describe( 'when returned plugin config does not have a plugin', function(){
+        it( 'should throw', function () {
+          assert.throws( () => webpack.addPlugin(pluginParams.funcWithoutPlugin), Error );
         } );
       } );
     } );
